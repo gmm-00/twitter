@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
+from django.contrib.auth.decorators import login_required
 # Dummy data post=[
 #     {
 #         'author': 'Ashok gaire',
@@ -15,6 +16,7 @@ from .models import Post
 #         'date_posted': 'December 21,2024',
 #     }
 # ]
+@login_required
 def home(request):
     context={
         'posts': Post.objects.all(),
